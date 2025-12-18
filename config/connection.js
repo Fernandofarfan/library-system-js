@@ -1,8 +1,11 @@
 import { Sequelize } from 'sequelize';
 
+import sqlite3Adapter from '../utils/sqlite3-adapter.js';
+
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: './database.sqlite'
+    storage: './database.sqlite',
+    dialectModule: sqlite3Adapter
 });
 
 async function connectDB() {

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Biblioteca | Fernando Farfán</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📚 Sistema de Biblioteca</h1>
+            <p>Desarrollado por Fernando Farfán</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="auth-section" class="card">
+            <h2>Acceso al Sistema</h2>
+            <div class="tabs">
+                <button id="tab-login" class="active">Iniciar Sesión</button>
+                <button id="tab-register">Registrarse</button>
+            </div>
+            
+            <form id="login-form">
+                <input type="text" id="login-username" placeholder="Nombre de usuario" required>
+                <input type="password" id="login-password" placeholder="Contraseña" required>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+
+            <form id="register-form" style="display: none;">
+                <input type="text" id="reg-username" placeholder="Nombre de usuario" required>
+                <input type="email" id="reg-email" placeholder="Correo electrónico" required>
+                <input type="password" id="reg-password" placeholder="Contraseña" required>
+                <button type="submit" class="btn-primary">Registrarse</button>
+            </form>
+            <p id="auth-message" class="message"></p>
+        </section>
+
+        <section id="library-section" style="display: none;">
+            <div class="user-info">
+                <span>Bienvenido, <strong id="display-username"></strong></span>
+                <button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+            </div>
+
+            <div class="search-bar card">
+                <input type="text" id="search-input" placeholder="Buscar por título, autor o ISBN...">
+                <button id="search-btn" class="btn-primary">Buscar</button>
+            </div>
+
+            <div id="books-grid" class="books-grid">
+                <!-- Books will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

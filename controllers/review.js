@@ -13,15 +13,15 @@ export async function addReview(req, res) {
 
         if (foundReview) {
             const newReview = await review.update({ review_text }, { where: { UserId: user_id, BookId: book_id } });
-            return res.json({ message: `Review added/updated successfully!` });
+            return res.json({ message: `¡Reseña añadida/actualizada con éxito!` });
         }
 
         // execute adding review operation
         const newReview = await review.create({ UserId: user_id, BookId: book_id, review_text });
-        res.json({ message: `Review added/updated successfully!` });
+        res.json({ message: `¡Reseña añadida/actualizada con éxito!` });
     } catch (error) {
 
-        res.status(500).json({ message: "Internal Server Error!!" });
+        res.status(500).json({ message: "¡Error interno del servidor!" });
 
     }
 }
@@ -32,14 +32,14 @@ export async function getReview(req, res) {
         const bookReview = await review.findAll({ attributes: ["review_text"], where: { BookId: id } })
 
         if (!bookReview.length) {
-            return res.json({ });
+            return res.json({});
         }
 
-        res.json({ message: "review found for this book", bookReview });
+        res.json({ message: "reseña encontrada para este libro", bookReview });
 
     } catch (error) {
 
-        res.status(500).json({ message: "Internal Server Error!!" });
+        res.status(500).json({ message: "¡Error interno del servidor!" });
 
     }
 }
@@ -54,14 +54,14 @@ export async function deleteReview(req, res) {
         // console.log(deletedReview);
 
         if (!deletedReview) {
-            return res.json({ message: "No review found for that user to delete!" });
+            return res.json({ message: "¡No se encontró ninguna reseña para eliminar!" });
         }
 
-        res.json({ message: "review deleted for that user successfully!" });
+        res.json({ message: "¡Reseña eliminada con éxito!" });
 
     } catch (error) {
 
-        res.status(500).json({ message: "Internal Server Error!!" });
+        res.status(500).json({ message: "¡Error interno del servidor!" });
 
     }
 }

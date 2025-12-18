@@ -1,14 +1,12 @@
 import { Sequelize } from 'sequelize';
 import { sequelize } from './config/connection.js'; // Adjust the path as per your project structure
+import User from './models/user.js';
+import Book from './models/book.js';
+import Review from './models/review.js';
 
 async function migrate() {
   try {
     // Assuming sequelize is correctly imported and instantiated in './config/connection.js'
-
-    // Define your models here (if not already imported)
-    const User = require('./models/user.js')(sequelize, Sequelize);
-    const Book = require('./models/book.js')(sequelize, Sequelize);
-    const Review = require('./models/review.js')(sequelize, Sequelize);
 
     // Create tables
     await User.sync({ force: true });

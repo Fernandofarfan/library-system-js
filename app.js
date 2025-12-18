@@ -13,6 +13,8 @@ dotenv.config();
 const app = Express();
 app.use(cors());
 app.use(Express.json());
+app.use(Express.static("public"));
+
 
 // routes
 const baseURL = "/api/v1";
@@ -28,7 +30,10 @@ connectDB();
 try {
 
     const port = 5000;
-    app.listen(port, console.log(`Server running on port ${port}!`));
+    app.listen(port, () => {
+        console.log(`¡Servidor corriendo en el puerto ${port}!`);
+        console.log(`Visita http://localhost:${port} para ver la biblioteca.`);
+    });
 
 } catch (error) {
 
